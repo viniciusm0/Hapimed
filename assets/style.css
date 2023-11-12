@@ -1,8 +1,4 @@
-.btn1 {
-    position: relative;
-    top: 15px;
-}
-
+@import url('https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css');
 .melhorOPS {
     color: green;
 }
@@ -11,6 +7,79 @@
     color: red;
 }
 
+.btn1-space{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .planosB {
     color: rgb(75, 75, 27);
 }
+
+#area1 {
+    height: 480px;
+    opacity: 0;
+    transform: translateY(90px) translateX(-60px) scale(0.5);
+}
+
+#area2 {
+    height: 480px;
+    opacity: 0;
+    transform: translateY(90px) scale(0.5);
+}
+
+#area3 {
+    height: 480px;
+    opacity: 0;
+    transform: translateY(90px) translateX(60px) scale(0.5);
+}
+
+#area1.fade1 {
+    opacity: 1;
+    transform: translateY(0px) translateX(0) scale(1);
+    transition: 1s;
+
+}
+
+#area2.fade2 {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    transition: 1s;
+
+}
+
+#area3.fade3 {
+    opacity: 1;
+    transform: translateY(0px) translateX(0px) scale(1);
+    transition: 1s;
+
+}
+.area-titulo {
+    height: 25%;
+}
+
+.area-preco {
+    height: 15%;
+}
+
+.area-botao {
+    height: 15%;
+}
+
+.area-texto {
+    height: 48%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.gg-check-o {
+    color: #0d6efd;
+}
+
+@media (min-width: 426px) and (max-width: 769px) {
+    .bg-success {
+       
+      
+    }
+  }
+

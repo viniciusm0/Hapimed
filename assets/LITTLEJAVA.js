@@ -1,3 +1,16 @@
+window.onload=function() {
+    const button = document.querySelector('#btn-processar');
+    button.addEventListener("click", transicao)
+}
+
+
+function transicao() {
+    document.querySelector('#area1').classList.add('fade1')
+    document.querySelector('#area2').classList.add('fade2')
+    document.querySelector('#area3').classList.add('fade3')
+
+}
+
 function processar () {
     const {peso, altura, idade} = pegarDados();
     const calculoIMC = peso / (altura ** 2);
@@ -20,15 +33,15 @@ function processar () {
 
 function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, melhorOP1, melhorOP2, melhorOP3) {
     document.getElementById('IMC').innerHTML = calculoIMC;
-    document.getElementById('planoA1').innerHTML = precoAPlano1;
-    document.getElementById('planoA2').innerHTML = precoAPlano2;
-    document.getElementById('planoA3').innerHTML = precoAPlano3;
-    document.getElementById('planoB1').innerHTML = precoBPlano1;
-    document.getElementById('planoB2').innerHTML = precoBPlano2;
-    document.getElementById('planoB3').innerHTML = precoBPlano3;
-    document.getElementById('melhorOP1').innerHTML = melhorOP1;
-    document.getElementById('melhorOP2').innerHTML = melhorOP2;
-    document.getElementById('melhorOP3').innerHTML = melhorOP3;
+    document.getElementById('planoA1').innerHTML = `R$ ${precoAPlano1}`;
+    document.getElementById('planoA2').innerHTML = `R$ ${precoAPlano2}`;
+    document.getElementById('planoA3').innerHTML = `R$ ${precoAPlano3}`;
+    document.getElementById('planoB1').innerHTML = `R$ ${precoBPlano1}`;
+    document.getElementById('planoB2').innerHTML = `R$ ${precoBPlano2}`;
+    document.getElementById('planoB3').innerHTML = `R$ ${precoBPlano3}`;
+    document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}`;
+    document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}`;
+    document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}`;
 }
 
 function precosBPlanos (calculoIMC) {
@@ -83,12 +96,12 @@ function compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, 
     return {melhorOP1, melhorOP2, melhorOP3}
 
 }
+  
 function pegarDados() {
     const peso = document.getElementById('peso').value;
     const altura = document.getElementById('altura').value;
     const idade = document.getElementById('idade').value;
     return { peso, altura, idade };
 }
-
 
 
