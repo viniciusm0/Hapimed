@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <script src="assets/LITTLEJAVA.js"></script>
+    <script src="assets/bootstrap.js"></script>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1>Planos de Saude Hapimed</h1>
+        <p>Baseado no seu IMC (Indice de Massa Corporal), vamos lhe recomendar um dos nossos planos com o melhor preço!</p>
+    </div>
+    <div class="container text-center">
+        <label for="peso" class="form-label">Digite o seu Peso:</label>
+        <input type="number" id="peso" class="form-control">
+        
+         <label for="altura" class="form-label">Digite a sua Altura: (Ex: 1,70)</label>
+        <input type="number" id="altura" class="form-control">
+
+        <label for="idade" class="form-label">Informe a sua Idade:</label>
+        <input type="number" id="idade" class="form-control">
+        
+        <button class="btn btn-primary btn1" onclick="processar()">Processar</button>
+    </div>
+    <div class="container text-center">
+        <h1 id="IMC"></h1>
+        <h1 class="planosA" id="planoA1"></h1>
+        <h1 class="planosA" id="planoA2"></h1>
+        <h1 class="planosA" id="planoA3"></h1>
+        <h1 class="planosB" id="planoB1"></h1>
+        <h1 class="planosB" id="planoB2"></h1>
+        <h1 class="planosB" id="planoB3"></h1>
+        <h1 class="melhorOPS" id="melhorOP1"></h1>
+        <h1 class="melhorOPS" id="melhorOP2"></h1>
+        <h1 class="melhorOPS" id="melhorOP3"></h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.btn1 {
+    position: relative;
+    top: 15px;
+}
+
+.melhorOPS {
+    color: green;
+}
+
+.planosA {
+    color: red;
+}
+
+.planosB {
+    color: rgb(75, 75, 27);
+}
