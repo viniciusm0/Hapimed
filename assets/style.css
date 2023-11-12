@@ -4,7 +4,7 @@
 }
 
 .planosA {
-    color: red;
+    color: rgb(255, 255, 255);
 }
 
 .btn1-space{
@@ -13,7 +13,7 @@
 }
 
 .planosB {
-    color: rgb(75, 75, 27);
+    color: rgb(0, 0, 0);
 }
 
 #area1 {
@@ -37,21 +37,21 @@
 #area1.fade1 {
     opacity: 1;
     transform: translateY(0px) translateX(0) scale(1);
-    transition: 1s;
+    transition: 1.5s;
 
 }
 
 #area2.fade2 {
     opacity: 1;
     transform: translateY(0px) scale(1);
-    transition: 1s;
+    transition: 1.5s;
 
 }
 
 #area3.fade3 {
     opacity: 1;
     transform: translateY(0px) translateX(0px) scale(1);
-    transition: 1s;
+    transition: 1.5s;
 
 }
 .area-titulo {

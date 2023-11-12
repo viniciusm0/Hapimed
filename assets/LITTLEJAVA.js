@@ -32,13 +32,13 @@ function processar () {
 }
 
 function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, melhorOP1, melhorOP2, melhorOP3) {
-    document.getElementById('IMC').innerHTML = calculoIMC;
-    document.getElementById('planoA1').innerHTML = `R$ ${precoAPlano1}`;
-    document.getElementById('planoA2').innerHTML = `R$ ${precoAPlano2}`;
-    document.getElementById('planoA3').innerHTML = `R$ ${precoAPlano3}`;
-    document.getElementById('planoB1').innerHTML = `R$ ${precoBPlano1}`;
-    document.getElementById('planoB2').innerHTML = `R$ ${precoBPlano2}`;
-    document.getElementById('planoB3').innerHTML = `R$ ${precoBPlano3}`;
+    document.getElementById('IMC').innerHTML = `IMC ${calculoIMC}`;
+    document.getElementById('planoA1').innerHTML = `PLANO A - BASICO R$ ${precoAPlano1}`;
+    document.getElementById('planoA2').innerHTML = `PLANO A - STANDARD R$ ${precoAPlano2}`;
+    document.getElementById('planoA3').innerHTML = `PLANO A - PREMIUM R$ ${precoAPlano3}`;
+    document.getElementById('planoB1').innerHTML = `PLANO B - BASICO R$ ${precoBPlano1}`;
+    document.getElementById('planoB2').innerHTML = `PLANO B - STANDARD R$ ${precoBPlano2}`;
+    document.getElementById('planoB3').innerHTML = `PLANO B - PREMIUM R$ ${precoBPlano3}`;
     document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}`;
     document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}`;
     document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}`;
