@@ -17,19 +17,19 @@
 }
 
 #area1 {
-    height: 480px;
+    height: 650px;
     opacity: 0;
     transform: translateY(90px) translateX(-60px) scale(0.5);
 }
 
 #area2 {
-    height: 480px;
+    height: 650px;
     opacity: 0;
     transform: translateY(90px) scale(0.5);
 }
 
 #area3 {
-    height: 480px;
+    height: 650px;
     opacity: 0;
     transform: translateY(90px) translateX(60px) scale(0.5);
 }

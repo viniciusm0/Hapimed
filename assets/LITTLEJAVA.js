@@ -96,6 +96,18 @@ function compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, 
     return {melhorOP1, melhorOP2, melhorOP3}
 
 }
+
+function botaoBasico () {
+    alert("Você adquiriu o plano Básico. Obrigado pela preferência")
+}
+
+function botaoStandard () {
+    alert("Você adquiriu o plano Standard. Obrigado pela preferência")
+}
+
+function botaoPremium () {
+    alert("Você adquiriu o plano Premium. Obrigado pela preferência")
+}
   
 function pegarDados() {
     const peso = document.getElementById('peso').value;
