@@ -39,9 +39,9 @@ function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, p
     document.getElementById('planoB1').innerHTML = `PLANO B - BASICO R$ ${precoBPlano1}`;
     document.getElementById('planoB2').innerHTML = `PLANO B - STANDARD R$ ${precoBPlano2}`;
     document.getElementById('planoB3').innerHTML = `PLANO B - PREMIUM R$ ${precoBPlano3}`;
-    document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}`;
-    document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}`;
-    document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}`;
+    document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}/mês`;
+    document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}/mês`;
+    document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}/mês`;
 }
 
 function precosBPlanos (calculoIMC) {

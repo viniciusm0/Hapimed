@@ -31,21 +31,21 @@
             <button class="btn btn-primary" id="btn-processar" onclick="processar()">Processar</button>
         </div>
     </div>
-    <div class="container-xxl d-flex justify-content-evenly align-items-center text-center">
-            <div class="col-4 bg-light border border-black" id="area1">
+    <div class="container flex-wrap d-flex justify-content-evenly align-items-center text-center">
+            <div class="col-auto bg-light border border-black" id="area1">
                 <div class="container d-flex align-items-center justify-content-center area-titulo bg-primary">
                     <h1 class="text-white fw-bolder">Plano Basico</h1>
                 </div>
                 <div class="container d-flex align-items-center justify-content-center area-preco bg-primary-subtle">
                     <h1 class="text-center text-dark fw-bolder" id="melhorOP1"></h1>
                 </div>
-                <div class="container text-center area-texto">
-                    <div class="row justify-content-center">
-                        <div class="col-1">
+                <div class="container text-center justify-content-center area-texto">
+                    <div class="row flex-nowrap justify-content-center">
+                        <div class="col-auto">
                             <i class="gg-check-o"></i>
                         </div>
                         <div class="col-auto">
-                            <p class="text-dark">Atendimento básico e serviços essenciais.</p>
+                            <p class="text-dark">Atendimento básico e Serviços essenciais.</p>
                         </div>
                     </div>
                     <div class="row justify-content-center">
@@ -85,7 +85,7 @@
                     <button class="btn btn-primary" onclick="botaoBasico()">Adquirir Agora</button>
                 </div>
             </div>
-            <div class="col-4 bg-light border border-black" id="area2">
+            <div class="col-auto bg-light border border-black" id="area2">
                 <div class="d-flex align-items-center justify-content-center area-titulo bg-warning">
                     <h1 class="text-white fw-bolder">Plano Standard</h1>
                 </div>
@@ -147,8 +147,8 @@
                 </div>
             </div>
             
-            <div class="col-4 bg-light border border-black" id="area3">
-                <div class="d-flex align-items-center justify-content-center area-titulo bg-danger">
+            <div class="col-auto bg-light border border-black" id="area3">
+                <div class="container d-flex align-items-center justify-content-center area-titulo bg-danger">
                     <h1 class="text-white fw-bolder">Plano Premium</h1>
                 </div>
                 <div class="container d-flex align-items-center justify-content-center area-preco bg-primary-subtle">
@@ -217,6 +217,110 @@
         <h1 class="planosB" id="planoB1"></h1>
         <h1 class="planosB" id="planoB2"></h1>
         <h1 class="planosB" id="planoB3"></h1>
+    </div>
+    <div class="container expImc text-left p-4">
+        <h1>Como o IMC é calculado: </h1>
+        <p>O cálculo do IMC (Índice de Massa Corporal) é feito dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado. </p>
+        <h2> Aqui está a fórmula:</h2> 
+        <p>IMC= peso (kg) / altura² (m)</p>    
+        <p>Por exemplo, se o seu peso é 80kg e a sua altura é 1,80m, a fórmula para calcular o IMC ficará:</p>
+        <p>IMC=1,80280=24,69</p>
+        <p>De acordo com a tabela de IMC, você está no seu peso ideal se o valor do IMC estiver entre 18,5 e 24,9 kg/m². 
+           Aqui está a tabela completa de classificação dos valores de IMC, de acordo com a Organização Mundial da Saúde:
+        </p>
+
+        <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">IMC (kg/m2)</th>
+                  <th scope="col">Classificação</th>  
+                </tr>
+              </thead>
+              <tbody>
+                    <tr>
+                    <td>Menor que 18,5</td>
+                    <td>Baixo peso</td>
+                    </tr>
+                    <tr>
+                    <td>De 18,5 a 24,9</td>
+                    <td>Peso normal</td>
+                    </tr>
+                    <tr>
+                    <td>De 25 a 29,9</td>
+                    <td>Sobrepeso</td>
+                    </tr>
+                    <tr>
+                    <td>De 30 a 34,9</td>
+                    <td>Obesidade grau I</td>
+                    </tr>
+                    <tr>
+                    <td>De 35 a 39,9</td>
+                    <td>Obesidade grau II</td>
+                    </tr>
+                    <tr>
+                    <td>Maior que 40</td>
+                    <td>Obesidade grau III</td>
+                    </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="calulodoplanoA">
+            <h1> Como é calculado o preço das operadoras</h1>
+
+            <h2>Operadora A</H2>
+            <p>1.	Plano básico: O preço é 100 mais 10 vezes a idade do cliente vezes o IMC dividido por 10. </p>
+            <p> 2.	Plano standard: O preço é 150 mais 15 vezes a idade do cliente, tudo isso multiplicado pelo IMC dividido por 10.</p>   
+            <p> 3.	Plano premium: O preço é 200 menos 10 vezes o IMC, mais 20 vezes a idade do cliente, tudo isso multiplicado pelo IMC dividido por 10.</p>             
+        </div>
+        <div class="calculodoplanoB">
+
+            <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">IMC (kg/m2)</th>
+                      <th scope="col">Classificação</th>  
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <tr>
+                        <td>Menor que 18,5</td>
+                        <td>Baixo peso</td>
+                        </tr>
+                        <tr>
+                        <td>De 18,5 a 24,9</td>
+                        <td>Peso normal</td>
+                        </tr>
+                        <tr>
+                        <td>De 25 a 29,9</td>
+                        <td>Sobrepeso</td>
+                        </tr>
+                        <tr>
+                        <td>De 30 a 34,9</td>
+                        <td>Obesidade grau I</td>
+                        </tr>
+                        <tr>
+                        <td>De 35 a 39,9</td>
+                        <td>Obesidade grau II</td>
+                        </tr>
+                        <tr>
+                        <td>Maior que 40</td>
+                        <td>Obesidade grau III</td>
+                        </tr>
+                  </tbody>
+                </table>
+            </div>
+
+          <h1> Operadora B </h1> 
+          <p>Fator de comorbidade: É um número que varia de acordo com o IMC do cliente. 
+            Pode ser 10 (abaixo do peso), 1 (normal), 6 (sobrepeso), 10 (obesidade), 20 (obesidade mórbida grave) ou 30 (obesidade mórbida muito grave).</p>
+          <p>1.	Plano básico: O preço é 100 mais o produto do fator de comorbidade, 10 e o IMC dividido por 10.</p>   
+          <p>2.	Plano standard: O preço é 150 mais o produto do fator de comorbidade e 15, tudo isso multiplicado pelo IMC dividido por 10.</p>  
+          <p>3.	Plano premium: O preço é 200 menos o produto do IMC e 10, mais o produto do fator de comorbidade e 20, tudo isso multiplicado pelo IMC dividido por 10.</p>  
+          <p> Esses planos consideram o IMC e o fator de comorbidade do cliente para determinar o preço. 
+            O IMC é calculado dividindo o peso (em kg) pela altura (em m) ao quadrado.</p>            
+        </div>
     </div>
 </body>
 </html>
