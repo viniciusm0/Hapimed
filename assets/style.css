@@ -3,6 +3,13 @@
     color: green;
 }
 
+.comeco-site {
+    height: 100vh;
+}
+
+.spanMes{
+    font-size: large;
+}
 .planosA {
     color: rgb(255, 255, 255);
 }
@@ -54,6 +61,18 @@
     transition: 1.5s;
 
 }
+
+#btn-calc-novamente {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#btn-calc-novamente.fade4 {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: 2.2s;
+}
+
 .area-titulo {
     height: 25%;
 }

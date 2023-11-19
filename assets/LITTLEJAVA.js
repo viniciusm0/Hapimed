@@ -1,22 +1,11 @@
-window.onload=function() {
-    const button = document.querySelector('#btn-processar');
-    button.addEventListener("click", transicao)
-}
-
-
-function transicao() {
-    document.querySelector('#area1').classList.add('fade1')
-    document.querySelector('#area2').classList.add('fade2')
-    document.querySelector('#area3').classList.add('fade3')
-
-}
-
 function processar () {
     const {peso, altura, idade} = pegarDados();
-    const calculoIMC = peso / (altura ** 2);
-    const precoAPlano1 = 100 + (idade * 10 * (calculoIMC / 10));
-    const precoAPlano2 = (150 + (idade * 15)) * (calculoIMC / 10);
-    const precoAPlano3 = (200 - (calculoIMC * 10) + (idade * 20)) * (calculoIMC / 10);
+    const isValid = verificador(peso, altura, idade);
+    if (!isValid) {
+        return;
+    }
+    const {calculoIMC} = calcIMC(peso, altura);
+    const {precoAPlano1, precoAPlano2, precoAPlano3} = calculoPlanosA(idade, calculoIMC);
     const {precoBPlano1, precoBPlano2, precoBPlano3} = precosBPlanos(calculoIMC);
     const {melhorOP1, melhorOP2, melhorOP3} = compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
     exibirResultado(calculoIMC.toFixed(2), 
@@ -28,7 +17,47 @@ function processar () {
     precoBPlano3.toFixed(0),
     melhorOP1.toFixed(0),
     melhorOP2.toFixed(0),
-    melhorOP3.toFixed(0)); 
+    melhorOP3.toFixed(0));
+    transicao()
+    scrollar();
+}
+
+function verificador(peso, altura, idade){
+    if (peso == "", altura == "", idade == "" ) {
+        alert("Preencha todos os campos.");
+        return false;
+
+    }
+    return true;
+}
+
+function scrollar() {
+    window.scroll({
+        top: 900,
+        behavior: "smooth"
+    })
+}
+
+function irTopo() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+    var teste = "SOBE"
+    console.log(teste)
+}
+
+function calcIMC(peso, altura) {
+    const calculoIMC = peso / (altura ** 2);
+    return {calculoIMC};
+}
+
+function calculoPlanosA(idade, calculoIMC) {
+    const precoAPlano1 = 100 + (idade * 10 * (calculoIMC / 10));
+    const precoAPlano2 = (150 + (idade * 15)) * (calculoIMC / 10);
+    const precoAPlano3 = (200 - (calculoIMC * 10) + (idade * 20)) * (calculoIMC / 10);
+    return {precoAPlano1, precoAPlano2, precoAPlano3}
+
 }
 
 function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, melhorOP1, melhorOP2, melhorOP3) {
@@ -39,9 +68,9 @@ function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, p
     document.getElementById('planoB1').innerHTML = `PLANO B - BASICO R$ ${precoBPlano1}`;
     document.getElementById('planoB2').innerHTML = `PLANO B - STANDARD R$ ${precoBPlano2}`;
     document.getElementById('planoB3').innerHTML = `PLANO B - PREMIUM R$ ${precoBPlano3}`;
-    document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}/mês`;
-    document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}/mês`;
-    document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}/mês`;
+    document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}<span class="spanMes">/mês</span>`;
+    document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}<span class="spanMes">/mês</span>`;
+    document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}<span class="spanMes">/mês</span>`;
 }
 
 function precosBPlanos (calculoIMC) {
@@ -108,7 +137,15 @@ function botaoStandard () {
 function botaoPremium () {
     alert("Você adquiriu o plano Premium. Obrigado pela preferência")
 }
-  
+
+function transicao() {
+    document.querySelector('#area1').classList.add('fade1')
+    document.querySelector('#area2').classList.add('fade2')
+    document.querySelector('#area3').classList.add('fade3')
+    document.querySelector('#btn-calc-novamente').classList.add('fade4')
+
+}
+
 function pegarDados() {
     const peso = document.getElementById('peso').value;
     const altura = document.getElementById('altura').value;
