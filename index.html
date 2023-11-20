@@ -4,38 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hapimed Planos</title>
-    <link rel="shortcut icon" href="img/Arrow-Up-2-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/Arrow-Up-2-icon.png" type="image/x-icong">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/bootstrap.css">
     <script src="assets/LITTLEJAVA.js"></script>
-    <script src="assets/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="bg-secondary text-white" id="overlay">
-    <section class="comeco-site d-flex flex-column container justify-content-center align-items-center">
-        <div class="container text-center">
-            <h1>Planos de Saude Hapimed</h1>
-            <p>Baseado no seu IMC (Indice de Massa Corporal), vamos lhe recomendar um dos nossos planos com o melhor preço!</p>
+<body class="text-white scrolloff" id="corpo-pagina">
+    <section class="comeco-site bg-section1 d-flex flex-column justify-content-center align-items-center">
+    <div class="overlay comeco-site d-flex flex-column justify-content-center align-items-center">
+        <div class="bg-form-area">
+            <div class="container text-center opacity-div">
+                <h1 class="display-2 fw-bolder">Planos de Saúde <span class="text-primary">Hapimed</span></h1>
+                <p class="h6">Baseado no seu IMC (Indice de Massa Corporal), vamos lhe recomendar um dos planos de nossas operadoras parceiras, com o melhor preço!</p>
+            </div>
+            <div class="container">
+                <div class="row align-items-center justify-content-center text-center">
+                    <label for="peso" class="form-label h6">Digite o seu Peso:</label>
+                    <input type="number" id="peso" class="form-control border border-primary">
+                </div>
+                <div class="row align-items-center justify-content-center text-center">
+                    <label for="altura" class="form-label h6">Digite a sua Altura: (Ex: 1,70)</label>
+                    <input type="number" id="altura" class="form-control border border-primary">
+                </div>
+                <div class="row align-items-center justify-content-center text-center">
+                    <label for="idade" class="form-label h6">Informe a sua Idade:</label>
+                    <input type="number" id="idade" class="form-control border border-primary">
+                </div>
+                <div class="d-flex align-items-center justify-content-center btn1-space">
+                    <button class="btn btn-primary" id="btn-processar" onclick="processar()">Processar</button>
+                </div>
+            </div>    
         </div>
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center">
-                <label for="peso" class="form-label">Digite o seu Peso:</label>
-                <input type="number" id="peso" class="form-control border border-primary">
-            </div>
-            <div class="row align-items-center justify-content-center text-center">
-                <label for="altura" class="form-label">Digite a sua Altura: (Ex: 1,70)</label>
-                <input type="number" id="altura" class="form-control border border-primary">
-            </div>
-            <div class="row align-items-center justify-content-center text-center">
-                <label for="idade" class="form-label">Informe a sua Idade:</label>
-                <input type="number" id="idade" class="form-control border border-primary">
-            </div>
-            <div class="d-flex align-items-center justify-content-center btn1-space">
-                <button class="btn btn-primary" id="btn-processar" onclick="processar()">Processar</button>
-            </div>
-        </div>
+    </div>
     </section>
-    <div class="container flex-wrap d-flex justify-content-evenly align-items-center text-center">
-            <div class="col-auto bg-light border border-black" id="area1">
+    <div class="container pt-4 flex-wrap d-flex justify-content-evenly align-items-center text-center">
+            <div class="col-auto mb-2 bg-light border border-black" id="area1">
                 <div class="container d-flex align-items-center justify-content-center area-titulo bg-primary">
                     <h1 class="text-white fw-bolder">Plano Basico</h1>
                 </div>
@@ -88,16 +92,16 @@
                     <button class="btn btn-primary" onclick="botaoBasico()">Adquirir Agora</button>
                 </div>
             </div>
-            <div class="col-auto bg-light border border-black" id="area2">
-                <div class="d-flex align-items-center justify-content-center area-titulo bg-warning">
+            <div class="col-auto mb-2 bg-light border border-black" id="area2">
+                <div class="container d-flex align-items-center justify-content-center area-titulo bg-warning">
                     <h1 class="text-white fw-bolder">Plano Standard</h1>
                 </div>
                 <div class="container d-flex align-items-center justify-content-center area-preco bg-primary-subtle">
                     <h1 class="text-center text-dark fw-bolder" id="melhorOP2"></h1>
                 </div>
-                <div class="container text-center area-texto">
-                    <div class="row justify-content-center">
-                        <div class="col-1">
+                <div class="container text-center justify-content-center area-texto">
+                    <div class="row flex-nowrap justify-content-center">
+                        <div class="col-auto">
                             <i class="gg-check-o"></i>
                         </div>
                         <div class="col-auto">
@@ -135,13 +139,13 @@
                         <div class="col-auto">
                             <p class="text-dark">Medicos Renomados.</p>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-1">
-                                <i class="gg-check-o"></i>
-                            </div>
-                            <div class="col-auto">
-                                <p class="text-dark">Conteudos do Plano Basico.</p>
-                            </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <i class="gg-check-o"></i>
+                        </div>
+                        <div class="col-auto">
+                            <p class="text-dark">Conteudos do Plano Basico.</p>
                         </div>
                     </div>
                 </div> 
@@ -149,8 +153,7 @@
                     <button class="btn btn-primary" onclick="botaoStandard()">Adquirir Agora</button>
                 </div>
             </div>
-            
-            <div class="col-auto bg-light border border-black" id="area3">
+            <div class="col-auto mb-2 bg-light border border-black" id="area3">
                 <div class="container d-flex align-items-center justify-content-center area-titulo bg-danger">
                     <h1 class="text-white fw-bolder">Plano Premium</h1>
                 </div>
@@ -215,19 +218,10 @@
     <div class="container d-flex justify-content-center" id="btn-calc-novamente">
         <button class="btn btn-primary btn1-space" onclick="irTopo()">Calcular Novamente</button>
     </div>
-    <div class="container text-center">
-        <h1 id="IMC"></h1>
-        <h1 class="planosA" id="planoA1"></h1>
-        <h1 class="planosA" id="planoA2"></h1>
-        <h1 class="planosA" id="planoA3"></h1>
-        <h1 class="planosB" id="planoB1"></h1>
-        <h1 class="planosB" id="planoB2"></h1>
-        <h1 class="planosB" id="planoB3"></h1>
-    </div>
     <div class="container expImc text-left p-4">
-        <h1>Como o IMC é calculado: </h1>
+        <h1 class="text-info">Como o IMC é calculado: </h1>
         <p>O cálculo do IMC (Índice de Massa Corporal) é feito dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado. </p>
-        <h2> Aqui está a fórmula:</h2> 
+        <h2 class="text-info"> Aqui está a fórmula:</h2> 
         <p>IMC= peso (kg) / altura² (m)</p>    
         <p>Por exemplo, se o seu peso é 80kg e a sua altura é 1,80m, a fórmula para calcular o IMC ficará:</p>
         <p>IMC=1,80280=24,69</p>
@@ -272,9 +266,9 @@
             </table>
         </div>
         <div class="calulodoplanoA">
-            <h1> Como é calculado o preço das operadoras</h1>
+            <h1 class="text-info"> Como é calculado o preço das operadoras</h1>
 
-            <h2>Operadora A</H2>
+            <h2 class="text-info">Operadora A</H2>
             <p>1.	Plano básico: O preço é 100 mais 10 vezes a idade do cliente vezes o IMC dividido por 10. </p>
             <p> 2.	Plano standard: O preço é 150 mais 15 vezes a idade do cliente, tudo isso multiplicado pelo IMC dividido por 10.</p>   
             <p> 3.	Plano premium: O preço é 200 menos 10 vezes o IMC, mais 20 vezes a idade do cliente, tudo isso multiplicado pelo IMC dividido por 10.</p>             
@@ -318,7 +312,7 @@
                 </table>
             </div>
 
-          <h1> Operadora B </h1> 
+          <h1 class="text-info"> Operadora B </h1> 
           <p>Fator de comorbidade: É um número que varia de acordo com o IMC do cliente. 
             Pode ser 10 (abaixo do peso), 1 (normal), 6 (sobrepeso), 10 (obesidade), 20 (obesidade mórbida grave) ou 30 (obesidade mórbida muito grave).</p>
           <p>1.	Plano básico: O preço é 100 mais o produto do fator de comorbidade, 10 e o IMC dividido por 10.</p>   

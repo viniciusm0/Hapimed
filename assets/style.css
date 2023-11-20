@@ -1,10 +1,56 @@
 @import url('https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css');
+.scrolloff {
+    /*overflow: hidden;*/
+}
+
+p {
+    color: #696969;
+}
+body{
+    background-color: #a5a3a3;
+}
+
+.bg-section1 {
+    background-image: url(https://wallpapers.com/images/hd/health-pictures-vqy13t129v6e2rlw.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+    opacity: 1;
+}
+
+.overlay{
+    position: relative;
+    top: 0;
+    background-color: black;
+    opacity: 0.75;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+
+.bg-form-area {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 1000px;
+    min-width: 0px;
+    background-color: rgb(34, 30, 30);
+    border-radius: 30px;
+    opacity: 1;
+    position: relative;
+}
+
+.opacity-div{
+    opacity: 100%;
+}
 .melhorOPS {
     color: green;
 }
 
 .comeco-site {
     height: 100vh;
+    width: 100%;
 }
 
 .spanMes{
@@ -26,38 +72,38 @@
 #area1 {
     height: 650px;
     opacity: 0;
-    transform: translateY(90px) translateX(-60px) scale(0.5);
+    transform: translateX(-60px) 
 }
 
 #area2 {
     height: 650px;
     opacity: 0;
-    transform: translateY(90px) scale(0.5);
+    transform: translateY(90px) 
 }
 
 #area3 {
     height: 650px;
     opacity: 0;
-    transform: translateY(90px) translateX(60px) scale(0.5);
+    transform: translateX(60px) 
 }
 
 #area1.fade1 {
     opacity: 1;
-    transform: translateY(0px) translateX(0) scale(1);
+    transform: translateY(0px) translateX(0);
     transition: 1.5s;
 
 }
 
 #area2.fade2 {
     opacity: 1;
-    transform: translateY(0px) scale(1);
+    transform: translateY(0px);
     transition: 1.5s;
 
 }
 
 #area3.fade3 {
     opacity: 1;
-    transform: translateY(0px) translateX(0px) scale(1);
+    transform: translateY(0px) translateX(0px);
     transition: 1.5s;
 
 }
@@ -94,11 +140,4 @@
 .gg-check-o {
     color: #0d6efd;
 }
-
-@media (min-width: 426px) and (max-width: 769px) {
-    .bg-success {
-       
-      
-    }
-  }
 

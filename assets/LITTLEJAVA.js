@@ -8,45 +8,57 @@ function processar () {
     const {precoAPlano1, precoAPlano2, precoAPlano3} = calculoPlanosA(idade, calculoIMC);
     const {precoBPlano1, precoBPlano2, precoBPlano3} = precosBPlanos(calculoIMC);
     const {melhorOP1, melhorOP2, melhorOP3} = compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
-    exibirResultado(calculoIMC.toFixed(2), 
-    precoAPlano1.toFixed(0), 
-    precoAPlano2.toFixed(0), 
-    precoAPlano3.toFixed(0), 
-    precoBPlano1.toFixed(0), 
-    precoBPlano2.toFixed(0), 
-    precoBPlano3.toFixed(0),
+    exibirResultado(
     melhorOP1.toFixed(0),
     melhorOP2.toFixed(0),
     melhorOP3.toFixed(0));
     transicao()
     scrollar();
+    scrollON();
+}
+
+function scrollar() {
+    var {coordenadas} = distaciaDoTopo();
+    const posicaoY = (coordenadas.y);
+    window.scroll({
+        top: posicaoY - 126,
+        behavior: "smooth"
+    })
+}
+
+function distaciaDoTopo() {
+    const PlanoBasicoBox = document.getElementById('area1');
+    var coordenadas = PlanoBasicoBox.getBoundingClientRect();
+    return {coordenadas}
+
 }
 
 function verificador(peso, altura, idade){
     if (peso == "", altura == "", idade == "" ) {
-        alert("Preencha todos os campos.");
+        Swal.fire({
+            title: "Erro",
+            text: "Por favor, preencha todos os campos.",
+            icon: "error",
+            confirmButtonColor: "#0d6efd"
+          });
         return false;
 
     }
     return true;
 }
 
-function scrollar() {
-    window.scroll({
-        top: 900,
-        behavior: "smooth"
-    })
-}
+
 
 function irTopo() {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     })
-    var teste = "SOBE"
-    console.log(teste)
 }
 
+function scrollON() {
+    document.querySelector('#corpo-pagina').classList.remove('scrolloff');
+}
 function calcIMC(peso, altura) {
     const calculoIMC = peso / (altura ** 2);
     return {calculoIMC};
@@ -60,14 +72,7 @@ function calculoPlanosA(idade, calculoIMC) {
 
 }
 
-function exibirResultado(calculoIMC, precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, melhorOP1, melhorOP2, melhorOP3) {
-    document.getElementById('IMC').innerHTML = `IMC ${calculoIMC}`;
-    document.getElementById('planoA1').innerHTML = `PLANO A - BASICO R$ ${precoAPlano1}`;
-    document.getElementById('planoA2').innerHTML = `PLANO A - STANDARD R$ ${precoAPlano2}`;
-    document.getElementById('planoA3').innerHTML = `PLANO A - PREMIUM R$ ${precoAPlano3}`;
-    document.getElementById('planoB1').innerHTML = `PLANO B - BASICO R$ ${precoBPlano1}`;
-    document.getElementById('planoB2').innerHTML = `PLANO B - STANDARD R$ ${precoBPlano2}`;
-    document.getElementById('planoB3').innerHTML = `PLANO B - PREMIUM R$ ${precoBPlano3}`;
+function exibirResultado(melhorOP1, melhorOP2, melhorOP3) {
     document.getElementById('melhorOP1').innerHTML = `R$ ${melhorOP1}<span class="spanMes">/mês</span>`;
     document.getElementById('melhorOP2').innerHTML = `R$ ${melhorOP2}<span class="spanMes">/mês</span>`;
     document.getElementById('melhorOP3').innerHTML = `R$ ${melhorOP3}<span class="spanMes">/mês</span>`;
@@ -96,7 +101,6 @@ function precosBPlanos (calculoIMC) {
     const precoBPlano1 = 100 + (comorbidade * 10 * (calculoIMC / 10));
     const precoBPlano2 = (150 + (comorbidade * 15)) * (calculoIMC / 10);
     const precoBPlano3 = (200 - (calculoIMC * 10) + (comorbidade * 20)) * (calculoIMC / 10);
-    console.log(comorbidade);
     return {precoBPlano1, precoBPlano2, precoBPlano3};
 }
 
@@ -127,15 +131,27 @@ function compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, 
 }
 
 function botaoBasico () {
-    alert("Você adquiriu o plano Básico. Obrigado pela preferência")
+    Swal.fire({
+        title: "Você adquiriu o plano Básico.",
+        text: "Obrigado pela preferência!",
+        confirmButtonColor: "#0d6efd"
+    });
 }
 
 function botaoStandard () {
-    alert("Você adquiriu o plano Standard. Obrigado pela preferência")
+    Swal.fire({
+        title: "Você adquiriu o plano Standard.",
+        text: "Obrigado pela preferência!",
+        confirmButtonColor: "#0d6efd"
+    });
 }
 
 function botaoPremium () {
-    alert("Você adquiriu o plano Premium. Obrigado pela preferência")
+    Swal.fire({
+        title: "Você adquiriu o plano Premium.",
+        text: "Obrigado pela preferência!",
+        confirmButtonColor: "#0d6efd"
+    });
 }
 
 function transicao() {
