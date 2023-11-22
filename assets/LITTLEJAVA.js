@@ -1,20 +1,24 @@
 function processar () {
-    const {peso, altura, idade} = pegarDados();
-    const isValid = verificador(peso, altura, idade);
-    if (!isValid) {
-        return;
-    }
-    const {calculoIMC} = calcIMC(peso, altura);
-    const {precoAPlano1, precoAPlano2, precoAPlano3} = calculoPlanosA(idade, calculoIMC);
-    const {precoBPlano1, precoBPlano2, precoBPlano3} = precosBPlanos(calculoIMC);
-    const {melhorOP1, melhorOP2, melhorOP3} = compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
-    exibirResultado(
-    melhorOP1.toFixed(0),
-    melhorOP2.toFixed(0),
-    melhorOP3.toFixed(0));
-    transicao()
-    scrollar();
-    scrollON();
+  const {peso, altura, idade} = pegarDados();
+  const isValid = verificador(peso, altura, idade);
+  if (!isValid) {
+      return;
+  }
+  const {calculoIMC} = calcIMC(peso, altura);
+  const {precoAPlano1, precoAPlano2, precoAPlano3} = calculoPlanosA(idade, calculoIMC);
+  const {precoBPlano1, precoBPlano2, precoBPlano3} = precosBPlanos(calculoIMC);
+  const {melhorOP1, melhorOP2, melhorOP3} = compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
+  exibirResultado(
+  melhorOP1.toFixed(2),
+  melhorOP2.toFixed(2),
+  melhorOP3.toFixed(2));
+  tabela(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, calculoIMC)
+  transicao()
+  scrollar();
+  scrollON();
+  planoRecomendado(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
+
+ 
 }
 
 function scrollar() {
@@ -68,6 +72,9 @@ function calculoPlanosA(idade, calculoIMC) {
     const precoAPlano1 = 100 + (idade * 10 * (calculoIMC / 10));
     const precoAPlano2 = (150 + (idade * 15)) * (calculoIMC / 10);
     const precoAPlano3 = (200 - (calculoIMC * 10) + (idade * 20)) * (calculoIMC / 10);
+    console.log(`Operadora A basico: ${precoAPlano1}`)
+    console.log(`Operadora A standard: ${precoAPlano2}`)
+    console.log(`Operadora A premium: ${precoAPlano3}`)
     return {precoAPlano1, precoAPlano2, precoAPlano3}
 
 }
@@ -101,6 +108,9 @@ function precosBPlanos (calculoIMC) {
     const precoBPlano1 = 100 + (comorbidade * 10 * (calculoIMC / 10));
     const precoBPlano2 = (150 + (comorbidade * 15)) * (calculoIMC / 10);
     const precoBPlano3 = (200 - (calculoIMC * 10) + (comorbidade * 20)) * (calculoIMC / 10);
+    console.log(`Operadora B basico: ${precoBPlano1}`)
+    console.log(`Operadora B standard: ${precoBPlano2}`)
+    console.log(`Operadora B premium: ${precoBPlano3}`)
     return {precoBPlano1, precoBPlano2, precoBPlano3};
 }
 
@@ -169,4 +179,136 @@ function pegarDados() {
     return { peso, altura, idade };
 }
 
+function tabela(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3, calculoIMC){
+    document.getElementById('IMC').innerHTML = calculoIMC.toFixed(2);
+    document.getElementById('planoA1').innerHTML = `R$ ${precoAPlano1.toFixed(2)}`;
+    document.getElementById('planoA2').innerHTML = `R$ ${precoAPlano2.toFixed(2)}`;
+    document.getElementById('planoA3').innerHTML = `R$ ${precoAPlano3.toFixed(2)}`;
+    document.getElementById('planoB1').innerHTML = `R$ ${precoBPlano1.toFixed(2)}`;
+    document.getElementById('planoB2').innerHTML = `R$ ${precoBPlano2.toFixed(2)}`;
+    document.getElementById('planoB3').innerHTML = `R$ ${precoBPlano3.toFixed(2)}`;
+    
 
+}
+
+function tabelaON(){
+    var {peso, altura, idade} = pegarDados()
+    var isValid = verificador(peso, altura, idade)
+    if (!isValid) {
+        return;
+    }
+    document.getElementById('tabelaPrecos').classList.remove('tabelaPrecosOFF');
+    document.getElementById('tabelaPrecos').classList.add('tabelaPrecosON'); 
+}
+
+function planoRecomendado(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3) {
+  var {melhorOP1, melhorOP2, melhorOP3} = compararPrecos(precoAPlano1, precoAPlano2, precoAPlano3, precoBPlano1, precoBPlano2, precoBPlano3);
+  var plano = ""; // Cria uma variável para armazenar o plano recomendado
+  var valorplano = 0
+  // Compara os preços dos planos e atribui os valores às variáveis
+  if (melhorOP2 > melhorOP1 && melhorOP3 > melhorOP1) {
+      plano = "Basico";
+      valorplano = 1;
+  }
+  else if (melhorOP1 > melhorOP2 && melhorOP3 > melhorOP2) {
+      plano = "Standard";
+      valorplano = 2;
+  } else {
+      plano = "Premium";
+      valorplano = 3;
+  }
+
+  if (valorplano = 1) {
+    var {operadora} = opRecomendada1(precoAPlano1, melhorOP1)
+
+  }
+
+  if (valorplano = 2) {
+    var {operadora} = opRecomendada2(precoAPlano2, melhorOP2)
+
+  }
+
+  if (valorplano = 3) {
+    var {operadora} = opRecomendada3(precoAPlano3, melhorOP3)
+
+  }
+
+  resultado.innerHTML = `Recomendamos o Plano ${plano} da operadora ${operadora}`;
+  planoRecomendadoON();
+}
+
+function opRecomendada(precoAPlano1, precoAPlano2, precoAPlano3, melhorOP1, melhorOP2, melhorOP3){
+    if(valorplano = 1) {
+        if(melhorOP1 == precoAPlano1) {
+            operadora = "A"
+   
+        } else {
+            operadora = "B"
+      
+        }
+    }
+
+    if(valorplano = 2) {
+        if(precoAPlano2 == melhorOP2) {
+            operadora = "A"
+      
+        } else {
+            operadora = "B"
+  
+        }
+    }
+
+    if(valorplano = 3) {
+        if(precoAPlano3 == melhorOP3) {
+            operadora = "A"
+  
+        } else {
+            operadora = "B"
+        }
+    }
+    return {operadora}
+}
+
+function opRecomendada1(precoAPlano1, melhorOP1) {
+    if(melhorOP1 == precoAPlano1) {
+        operadora = "A"
+
+    } else {
+        operadora = "B"
+  
+    }
+
+    return {operadora}
+
+}
+
+function opRecomendada2(precoAPlano2, melhorOP2) {
+    if(melhorOP2 == precoAPlano2) {
+        operadora = "A"
+
+    } else {
+        operadora = "B"
+  
+    }
+
+    return {operadora}
+
+}
+
+function opRecomendada3(precoAPlano3, melhorOP3) {
+    if(melhorOP3 == precoAPlano3) {
+        operadora = "A"
+
+    } else {
+        operadora = "B"
+  
+    }
+
+    return {operadora}
+
+}
+
+function planoRecomendadoON() {
+    var resultado = document.getElementById("resultado"); // Seleciona a div com id="resultado"
+    resultado.style.display = "flex"; // Altera o estilo da div para exibir
+}
